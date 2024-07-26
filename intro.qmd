@@ -1,0 +1,6 @@
+$$
+\begin{align}
+a & = b + c \label{eq1} \\
+c & = d + e \label{eq2}
+\end{align}
+$$

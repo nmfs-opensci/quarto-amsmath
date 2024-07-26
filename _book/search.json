@@ -1,0 +1,22 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "delete-me",
+    "section": "",
+    "text": "1 Test\n\\[\n\\begin{align}\na & = b + c \\label{eq1} \\\\\nc & = d + e \\label{eq2}\n\\end{align}\n\\]",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Test</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "delete-me",
+    "section": "",
+    "text": "\\[\n\\begin{align}\na & = b + c \\label{eq1} \\\\\nc & = d + e \\label{eq2}\n\\end{align}\n\\]",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>intro.html</span>"
+    ]
+  }
+]
