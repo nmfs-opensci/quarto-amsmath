@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "delete-me",
     "section": "",
-    "text": "1 Test\n\\[\n\\begin{align}\na & = b + c \\label{eq1} \\\\\nc & = d + e \\label{eq2}\n\\end{align}\n\\]",
+    "text": "1 Test\nEquations",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Test</span>"
     ]
@@ -12,11 +12,11 @@
   {
     "objectID": "intro.html",
     "href": "intro.html",
-    "title": "delete-me",
+    "title": "2  Eqn Test",
     "section": "",
-    "text": "\\[\n\\begin{align}\na & = b + c \\label{eq1} \\\\\nc & = d + e \\label{eq2}\n\\end{align}\n\\]",
+    "text": "\\[\nS_n = \\frac{X_1 + X_2 + \\cdots + X_n}{n}\n      = \\frac{1}{n}\\sum_{i}^{n} X_i\n\\tag{2.1}\\]\n\\[\\begin{align}\na & = b + c \\label{eq2} \\\\\nc & = d + e \\label{eq3}\n\\end{align}\\]\n\\[\nS_n = \\frac{X_1 + X_2 + \\cdots + X_n}{n}\n      = \\frac{1}{n}\\sum_{i}^{n} X_i\n\\tag{2.2}\\]\n\\(\\eqref{eq-eq1}\\), \\(\\eqref{eq2}\\), \\(\\eqref{eq3}\\), \\(\\eqref{eq-eq4}\\)",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>intro.html</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Eqn Test</span>"
     ]
   }
 ]

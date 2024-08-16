@@ -10,7 +10,9 @@ book:
 format:
   html:
     include-in-header: mathjax.html
-    html-math-method:
-      method: mathjax
-      url: "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+  pdf: default
+# Don't use this. Breaks numbering (Aug 2024)
+#    html-math-method:
+#      method: mathjax
+#      url: "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
       

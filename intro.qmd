@@ -1,6 +1,18 @@
+# Eqn Test
+
 $$
+S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
+      = \frac{1}{n}\sum_{i}^{n} X_i
+$$ {#eq-eq1}
+
 \begin{align}
-a & = b + c \label{eq1} \\
-c & = d + e \label{eq2}
+a & = b + c \label{eq2} \\
+c & = d + e \label{eq3}
 \end{align}
+
 $$
+S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
+      = \frac{1}{n}\sum_{i}^{n} X_i
+$$ {#eq-eq4}
+
+\eqref{eq-eq1}, \eqref{eq2}, \eqref{eq3}, \eqref{eq-eq4}
