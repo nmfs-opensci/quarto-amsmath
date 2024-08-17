@@ -3,7 +3,13 @@ project:
   output-dir: docs
 
 book:
+  page-navigation: true
   title: "Quatro for amsmath LaTeX users"
+  site-url: "https://nmfs-opensci.github.io/quarto-amsmath" 
+  repo-url: "https://github.com/nmfs-opensci/quarto-amsmath"
+  repo-actions: [edit, source, issue]
+  downloads: [pdf]
+  search: true
   chapters:
     - index.qmd
     - background.qmd
