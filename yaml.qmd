@@ -1,0 +1,28 @@
+# yaml for your Quarto book
+
+MathJax is handling the display of your equations in html and you need to set the configuration to show numbers. Oddly, that is not the default. So you need `include-in-header: mathjax.html` in your Quarto book yaml. See the mathjax tab for your `mathjax.html` code.
+
+This is what a minimal `_quarto.yaml` for numbered equations looks like
+
+```
+project:
+  type: book
+
+book:
+  title: "Quatro for amsmath LaTeX users"
+  chapters:
+    - index.qmd
+    - yaml.qmd
+    - numbered_equations.qmd
+
+format:
+  html:
+    include-in-header: mathjax.html
+  pdf: default
+# Don't use this. Breaks numbering (Aug 2024)
+#    html-math-method:
+#      method: mathjax
+#      url: "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+```
+
+August 2024: I don't know why that url is not working. It was in Jan 2024. It is just setting the MathJax version. Probably the url is out of date somehow.

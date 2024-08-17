@@ -1,3 +1,20 @@
-# Test
+*tldr; For LaTeX users wanting complex math in both html and PDF: 1) Don't mix Quarto equation and amsmath syntax. Stick with amsmath. 2) Add a mathjax.html file and add to your top yaml to turn-on equation numbering and only use LaTeX equation environments (not $$). 2) For referencing, only use `\label{}` and `\eqref{}` or `\ref{}`. Do not use `(#eq-)` and `@eq-` for cross-refs. Pandoc (and MathJax) knows LaTeX so all your fancy equations should work if you do 1 and 2.*
 
-Equations
+## Preface  {.unnumbered}
+
+These are notes for those creating a Quarto book that they want to display and html and PDF formats. Those only needing Word format, sorry not sure that works as of July 2023; I have not tested since then.
+
+### To do
+
+* Adding equations that look like `3.1` so with the chapter numbering. We need this in Quarto books. MathJax [tagformat](https://docs.mathjax.org/en/latest/input/tex/extensions/tagformat.html#tex-tagformat) looks like the way to go.
+* Going forward, I think we might need a lua filter for LaTeX docs. Perhaps this already exists? Like, we should have to re-write a basic LaTeX doc that has `\section{abs}`. We should be able to include our LaTeX chapters (`chap1.tex`) directly in the Quarto books and have standard LaTeX code with R or Python code mixed in.
+
+### Contributing!
+
+Please put in a pull request and add more examples. Also Quarto keeps updating so these notes will get out of date. I used Quarto 1.5.55 and output from `pandoc --version` is
+```
+pandoc 2.19
+Compiled with pandoc-types 1.22.2, texmath 0.12.5.2, skylighting 0.13,
+citeproc 0.8.0.1, ipynb 0.2, hslua 2.2.1
+Scripting engine: Lua 5.4
+```

@@ -1,11 +1,14 @@
 project:
   type: book
+  output-dir: docs
 
 book:
-  title: "delete-me"
+  title: "Quatro for amsmath LaTeX users"
   chapters:
     - index.qmd
-    - intro.qmd
+    - background.qmd
+    - yaml.qmd
+    - numbered_equations.qmd
 
 format:
   html:

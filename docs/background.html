@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Eqn Test – delete-me</title>
+<title>1&nbsp; Background – Quatro for amsmath LaTeX users</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./yaml.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -124,7 +125,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Eqn Test</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./background.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Background</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -139,7 +140,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">delete-me</a> 
+      <a href="./">Quatro for amsmath LaTeX users</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -152,13 +153,25 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Test</span></span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Eqn Test</span></span></a>
+  <a href="./background.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Background</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./yaml.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">yaml for your Quarto book</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./numbered_equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Numbered equations</span></span></a>
   </div>
 </li>
     </ul>
@@ -174,7 +187,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Eqn Test</span></h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Background</span></h1>
 </div>
 
 
@@ -191,19 +204,18 @@ window.Quarto = {
 </header>
 
 
+<p>The default way to number and cross-ref equation numbers in Quarto is a <code>$$</code> fence with <code>{#eq-}</code>:</p>
+<pre><code>$$
+S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
+      = \frac{1}{n}\sum_{i}^{n} X_i
+$$ {#eq-eq1}</code></pre>
 <p><span id="eq-eq1"><span class="math display">\[
 S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
       = \frac{1}{n}\sum_{i}^{n} X_i
-\tag{2.1}\]</span></span></p>
-<p><span class="math display">\[\begin{align}
-a &amp; = b + c \label{eq2} \\
-c &amp; = d + e \label{eq3}
-\end{align}\]</span></p>
-<p><span id="eq-eq4"><span class="math display">\[
-S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
-      = \frac{1}{n}\sum_{i}^{n} X_i
-\tag{2.2}\]</span></span></p>
-<p><span class="math inline">\(\eqref{eq-eq1}\)</span>, <span class="math inline">\(\eqref{eq2}\)</span>, <span class="math inline">\(\eqref{eq3}\)</span>, <span class="math inline">\(\eqref{eq-eq4}\)</span></p>
+\tag{1.1}\]</span></span></p>
+<p>Then you cross-ref with <code>@eq-eq1</code> which gives you this: <a href="#eq-eq1" class="quarto-xref">Equation&nbsp;<span>1.1</span></a>. It is works great with single equation in display math…and it causes all sorts of problems for LaTeX users.</p>
+<p>The problem with this for LaTeX users is that if you are a LaTeX user then you are using (almost certainly) amsmath and the more complex equation environments and equation numbers. That Quarto syntax above is not LaTeX and going to break things for you on many levels (Pandoc, mathjax) for things that expect proper amsmath syntax. Also you do not want to be re-writting your LaTeX equation code for 100s of equations from your LaTeX docs!!</p>
+<p>Rather than try to get Quarto syntax to work with your AMS equation environments, I suggest never mixing Quarto syntax and amsmath syntax. <strong>Only</strong> use proper amsmath syntax. So no <code>$$</code> fencing around your <code>\begin{&lt;environment&gt;}</code> stuff. That <code>$$</code> fencing is improper syntax and using it, while seemingly a shortcut to get what you need, is going to make you suffer later.</p>
 
 
 
@@ -630,11 +642,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Test">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Test</span></span>
+      <a href="./index.html" class="pagination-link" aria-label="Preface">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./yaml.html" class="pagination-link" aria-label="yaml for your Quarto book">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">yaml for your Quarto book</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

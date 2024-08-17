@@ -1,0 +1,62 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Quatro for amsmath LaTeX users",
+    "section": "",
+    "text": "Preface\nThese are notes for those creating a Quarto book that they want to display and html and PDF formats. Those only needing Word format, sorry not sure that works as of July 2023; I have not tested since then.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#preface",
+    "href": "index.html#preface",
+    "title": "Quatro for amsmath LaTeX users",
+    "section": "",
+    "text": "To do\n\nAdding equations that look like 3.1 so with the chapter numbering. We need this in Quarto books. MathJax tagformat looks like the way to go.\nGoing forward, I think we might need a lua filter for LaTeX docs. Perhaps this already exists? Like, we should have to re-write a basic LaTeX doc that has \\section{abs}. We should be able to include our LaTeX chapters (chap1.tex) directly in the Quarto books and have standard LaTeX code with R or Python code mixed in.\n\n\n\nContributing!\nPlease put in a pull request and add more examples. Also Quarto keeps updating so these notes will get out of date. I used Quarto 1.5.55 and output from pandoc --version is\npandoc 2.19\nCompiled with pandoc-types 1.22.2, texmath 0.12.5.2, skylighting 0.13,\nciteproc 0.8.0.1, ipynb 0.2, hslua 2.2.1\nScripting engine: Lua 5.4",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "background.html",
+    "href": "background.html",
+    "title": "1  Background",
+    "section": "",
+    "text": "The default way to number and cross-ref equation numbers in Quarto is a $$ fence with {#eq-}:\n$$\nS_n = \\frac{X_1 + X_2 + \\cdots + X_n}{n}\n      = \\frac{1}{n}\\sum_{i}^{n} X_i\n$$ {#eq-eq1}\n\\[\nS_n = \\frac{X_1 + X_2 + \\cdots + X_n}{n}\n      = \\frac{1}{n}\\sum_{i}^{n} X_i\n\\tag{1.1}\\]\nThen you cross-ref with @eq-eq1 which gives you this: Equation 1.1. It is works great with single equation in display math…and it causes all sorts of problems for LaTeX users.\nThe problem with this for LaTeX users is that if you are a LaTeX user then you are using (almost certainly) amsmath and the more complex equation environments and equation numbers. That Quarto syntax above is not LaTeX and going to break things for you on many levels (Pandoc, mathjax) for things that expect proper amsmath syntax. Also you do not want to be re-writting your LaTeX equation code for 100s of equations from your LaTeX docs!!\nRather than try to get Quarto syntax to work with your AMS equation environments, I suggest never mixing Quarto syntax and amsmath syntax. Only use proper amsmath syntax. So no $$ fencing around your \\begin{&lt;environment&gt;} stuff. That $$ fencing is improper syntax and using it, while seemingly a shortcut to get what you need, is going to make you suffer later.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Background</span>"
+    ]
+  },
+  {
+    "objectID": "yaml.html",
+    "href": "yaml.html",
+    "title": "2  yaml for your Quarto book",
+    "section": "",
+    "text": "MathJax is handling the display of your equations in html and you need to set the configuration to show numbers. Oddly, that is not the default. So you need include-in-header: mathjax.html in your Quarto book yaml. See the mathjax tab for your mathjax.html code.\nThis is what a minimal _quarto.yaml for numbered equations looks like\nproject:\n  type: book\n\nbook:\n  title: \"Quatro for amsmath LaTeX users\"\n  chapters:\n    - index.qmd\n    - yaml.qmd\n    - numbered_equations.qmd\n\nformat:\n  html:\n    include-in-header: mathjax.html\n  pdf: default\n# Don't use this. Breaks numbering (Aug 2024)\n#    html-math-method:\n#      method: mathjax\n#      url: \"https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML\"\nAugust 2024: I don’t know why that url is not working. It was in Jan 2024. It is just setting the MathJax version. Probably the url is out of date somehow.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>yaml for your Quarto book</span>"
+    ]
+  },
+  {
+    "objectID": "numbered_equations.html",
+    "href": "numbered_equations.html",
+    "title": "3  Numbered equations",
+    "section": "",
+    "text": "3.1 Basic align\n\\[\\begin{align}\na & = b + c \\label{eq2} \\\\\nc & = d + e \\label{eq3}\n\\end{align}\\]\nThe cross-ref with \\eqref{eq2} and \\eqref{eq3} to get \\(\\eqref{eq2}\\) and \\(\\eqref{eq3}\\).",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Numbered equations</span>"
+    ]
+  },
+  {
+    "objectID": "numbered_equations.html#basic-align",
+    "href": "numbered_equations.html#basic-align",
+    "title": "3  Numbered equations",
+    "section": "",
+    "text": "\\begin{align}\na & = b + c \\label{eq2} \\\\\nc & = d + e \\label{eq3}\n\\end{align}",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Numbered equations</span>"
+    ]
+  }
+]

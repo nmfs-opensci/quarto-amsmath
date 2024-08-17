@@ -1,0 +1,22 @@
+# Numbered equations
+
+*Reminder: Do not use [Quarto equation numbering syntax](https://quarto.org/docs/authoring/cross-references.html#equations). Stay with proper amsmath LaTeX. Quarto syntax is fine if you only have single equations in display math, but you are on this page because that is not what you need. You need the full amsmath capabilities.*
+
+**Yes**, the equations don't have 3.1, 3.2 like they should in html output even though they are fine in PDF. Still trying to figure out how to get the Quarto chapter variable over to MathJax tagformat extension which can add the chapter labels.
+
+## Basic align
+
+```
+\begin{align}
+a & = b + c \label{eq2} \\
+c & = d + e \label{eq3}
+\end{align}
+```
+
+\begin{align}
+a & = b + c \label{eq2} \\
+c & = d + e \label{eq3}
+\end{align}
+
+
+The cross-ref with  `\eqref{eq2}` and `\eqref{eq3}` to get \eqref{eq2} and \eqref{eq3}.

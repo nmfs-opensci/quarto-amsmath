@@ -1,0 +1,22 @@
+# Background
+
+The default way to number and cross-ref equation numbers in Quarto is a `$$` fence with `{#eq-}`:
+
+```
+$$
+S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
+      = \frac{1}{n}\sum_{i}^{n} X_i
+$$ {#eq-eq1}
+```
+
+$$
+S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
+      = \frac{1}{n}\sum_{i}^{n} X_i
+$$ {#eq-eq1}
+
+Then you cross-ref with `@eq-eq1` which gives you this: @eq-eq1. It is works great with single equation in display math...and it causes all sorts of problems for LaTeX users.
+
+The problem with this for LaTeX users is that if you are a LaTeX user then you are using (almost certainly) amsmath and the more complex equation environments and equation numbers. That Quarto syntax above is not LaTeX and going to break things for you on many levels (Pandoc, mathjax) for things that expect proper amsmath syntax. Also you do not want to be re-writting your LaTeX equation code for 100s of equations from your LaTeX docs!!
+
+Rather than try to get Quarto syntax to work with your AMS equation environments, I suggest never mixing Quarto syntax and amsmath syntax. **Only** use proper amsmath syntax. So no `$$` fencing around your `\begin{<environment>}` stuff. That `$$` fencing is improper syntax and using it, while seemingly a shortcut to get what you need, is going to make you suffer later.
+
