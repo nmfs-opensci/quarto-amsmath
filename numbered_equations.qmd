@@ -1,22 +1,162 @@
-# Numbered equations
+# Basic numbered equations
 
 *Reminder: Do not use [Quarto equation numbering syntax](https://quarto.org/docs/authoring/cross-references.html#equations). Stay with proper amsmath LaTeX. Quarto syntax is fine if you only have single equations in display math, but you are on this page because that is not what you need. You need the full amsmath capabilities.*
 
 **Yes**, the equations don't have 3.1, 3.2 like they should in html output even though they are fine in PDF. Still trying to figure out how to get the Quarto chapter variable over to MathJax tagformat extension which can add the chapter labels.
 
+**Important** All the LaTeX is included plain in the qmd so none of this type of fencing: <pre>```{=latex}
+```</pre>
+
+Wiki showing examples [advanced math](https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics#Other_environments)
+
+If you want one equation number, then use `\begin{equation}\end{equation}` fence. You can use `\begin{gathered}\end{gathered}` or `\begin{aligned}\end{aligned}` **inside** that fence to affect alignment of your equations. If you want each equation to be numbered, then use `\begin{gather}\end{gather}` or `\begin{align}\end{align}` fence alone without `\begin{equation}\end{equation}`.
+
+If you want no numbering, use `*` after the outer environment name, so like `\begin{equation*}\end{equation*}` and `\begin{align*}\end{align*}`. If you want to drop one equation number in the align or gather environments, use `\nonumber`. See examples.
+
+**cross-refs** If you need to cross-reference the equation number in the text, you use `\label{equation-name}` to give the equation a name. Then cross-reference in text with `\eqref{equation-name}`. It is good practice with amsmath to use `\eqref{}` instead of `\ref{}`. If you don't need to cross-reference the equation in the text, then you don't need `\label{}`. It is only giving the equation a name; it is not saying "number this equation". The numbering or not comes from having `*` or not in the outer `\begin{}\end{}` or having `\nonumber` on an equation.
+
+## Basic split
+
+This is similar behavior to aligned.
+```
+\begin{equation} \label{eq1}
+\begin{split}
+A & = \frac{\pi r^2}{2} \\
+ & = \frac{1}{2} \pi r^2
+\end{split}
+\end{equation}
+```
+
+\begin{equation} \label{eq1}
+\begin{split}
+A & = \frac{\pi r^2}{2} \\
+ & = \frac{1}{2} \pi r^2
+\end{split}
+\end{equation}
+
+
+The cross-ref with  `\eqref{eq1}` to get \eqref{eq1}.
+
+## Basic gathered
+
+Gathered gets you one number for all equations with centered equations.
+```
+\begin{equation}  
+\begin{gathered}
+3(a-x) = 3.5x + a - 1 \\
+3a - 3x = 3.5x + a - 1 \\
+a = \frac{13}{4}x - \frac{1}{2}
+\end{gathered} \label{eq4}
+\end{equation}
+```
+
+\begin{equation}  
+\begin{gathered}
+3(a-x) = 3.5x + a - 1 \\
+3a - 3x = 3.5x + a - 1 \\
+a = \frac{13}{4}x - \frac{1}{2}
+\end{gathered} \label{eq4}
+\end{equation}
+
+The cross-ref with  `\eqref{eq4}` to get \eqref{eq4}.
+
+## Basic aligned
+
+Same idea as gathered but we want to spec the equation alignment with `&`.
+## Basic gathered
+
+Gathered gets you one number for all equations with centered equations.
+```
+\begin{equation}  
+\begin{aligned}
+3(a-x) &= 3.5x + a - 1 \\
+3a - 3x + 3a - 3x &= 3.5x + a - 1 
+\end{aligned} \label{eq5}
+\end{equation}
+```
+
+\begin{equation}  
+\begin{aligned}
+3(a-x) &= 3.5x + a - 1 \\
+3a - 3x + 3a - 3x &= 3.5x + a - 1 
+\end{aligned} \label{eq5}
+\end{equation}
+
+
+The cross-ref with  `\eqref{eq5}` to get \eqref{eq5}.
+
 ## Basic align
 
+Align (not aligned) gets you each equation numbered with aligning at the `&`.
 ```
-\begin{align}
-a & = b + c \label{eq2} \\
-c & = d + e \label{eq3}
+\begin{align}  
+3(a-x) &= 3.5x + a - 1 \label{eq4a} \\
+3a - 3x &= 3.5x + a - 1 \label{eq4b} \\
+a &= \frac{13}{4}x - \frac{1}{2} \label{eq4c}
 \end{align}
 ```
 
-\begin{align}
-a & = b + c \label{eq2} \\
-c & = d + e \label{eq3}
+\begin{align}  
+3(a-x) &= 3.5x + a - 1 \label{eq4a} \\
+3a - 3x &= 3.5x + a - 1 \label{eq4b} \\
+a &= \frac{13}{4}x - \frac{1}{2} \label{eq4c}
 \end{align}
 
+The cross-ref with  `\eqref{eq4a}` to get \eqref{eq4a}.
 
-The cross-ref with  `\eqref{eq2}` and `\eqref{eq3}` to get \eqref{eq2} and \eqref{eq3}.
+You can put aligned environment within align to get fancier (look at the raw qmd file for code).
+\begin{align}
+  & {\begin{aligned}
+   & 1 + 1 = 2\\
+   & 1 * 2 * 3 * 4 * 5 * 6 * 7 = 7!\\
+   & 7 + 5 = 12+1-1+1-1+1-1+1-1
+  \end{aligned}} \label{A} \\
+     12 &= 11 + 1 \label{B}
+\end{align}
+Equations \eqref{A}, \eqref{B}.
+
+Use `\nonumber` to drop the number from one line. Add `\label{}` if you need to cross-ref the equations numbers.
+```
+\begin{align}  
+3(a-x) &= 3.5x + a - 1  \nonumber \\
+3a - 3x &= 3.5x + a - 1 \nonumber \\
+a &= \frac{13}{4}x - \frac{1}{2} 
+\end{align}
+```
+
+\begin{align}  
+3(a-x) &= 3.5x + a - 1  \\
+3a - 3x &= 3.5x + a - 1 \nonumber \\
+a &= \frac{13}{4}x - \frac{1}{2} 
+\end{align}
+
+## Basic gather
+
+gather (not gathered) gets you each equation numbered like align but equations are all centered.
+```
+\begin{gather}  
+3(a-x) = 3.5x + a - 1 \label{eq6a} \\
+3a - 3x = 3.5x + a - 1 \label{eq46b} \\
+a = \frac{13}{4}x - \frac{1}{2} \label{eq6c}
+\end{gather}
+```
+
+\begin{gather}  
+3(a-x) = 3.5x + a - 1 \label{eq6a} \\
+3a - 3x = 3.5x + a - 1 \label{eq46b} \\
+a = \frac{13}{4}x - \frac{1}{2} \label{eq6c}
+\end{gather}
+
+The cross-ref with  `\eqref{eq6a}` to get \eqref{eq6a}.
+
+You can put gathered environment within gather to get fancier.
+\begin{gather}
+  {\begin{gathered}
+   1 + 1 = 2\\
+   1 * 2 * 3 * 4 * 5 * 6 * 7 = 7!\\
+   7 + 5 = 12+1-1+1-1+1-1+1-1
+  \end{gathered}} \label{AA} \\
+     12 = 11 + 1 \label{BB}
+\end{gather}
+Equations \eqref{AA}, \eqref{BB}.
+

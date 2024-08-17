@@ -146,7 +146,13 @@ MathJax.Hub.Config({
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./numbered_equations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Numbered equations</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Basic numbered equations</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./fancy_equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fancier equations</span></span></a>
   </div>
 </li>
     </ul>
@@ -194,7 +200,10 @@ book:
 format:
   html:
     include-in-header: mathjax.html
-  pdf: default
+  pdf:
+    include-in-header:
+      - text: |
+          \usepackage{mathtools}
 # Don't use this. Breaks numbering (Aug 2024)
 #    html-math-method:
 #      method: mathjax
@@ -631,8 +640,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./numbered_equations.html" class="pagination-link" aria-label="Numbered equations">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Numbered equations</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./numbered_equations.html" class="pagination-link" aria-label="Basic numbered equations">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Basic numbered equations</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

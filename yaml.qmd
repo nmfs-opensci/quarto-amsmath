@@ -18,7 +18,10 @@ book:
 format:
   html:
     include-in-header: mathjax.html
-  pdf: default
+  pdf:
+    include-in-header:
+      - text: |
+          \usepackage{mathtools}
 # Don't use this. Breaks numbering (Aug 2024)
 #    html-math-method:
 #      method: mathjax

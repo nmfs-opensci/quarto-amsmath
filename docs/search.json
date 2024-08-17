@@ -34,7 +34,7 @@
     "href": "yaml.html",
     "title": "2  yaml for your Quarto book",
     "section": "",
-    "text": "MathJax is handling the display of your equations in html and you need to set the configuration to show numbers. Oddly, that is not the default. So you need include-in-header: mathjax.html in your Quarto book yaml. See the mathjax tab for your mathjax.html code.\nThis is what a minimal _quarto.yaml for numbered equations looks like\nproject:\n  type: book\n\nbook:\n  title: \"Quatro for amsmath LaTeX users\"\n  chapters:\n    - index.qmd\n    - yaml.qmd\n    - numbered_equations.qmd\n\nformat:\n  html:\n    include-in-header: mathjax.html\n  pdf: default\n# Don't use this. Breaks numbering (Aug 2024)\n#    html-math-method:\n#      method: mathjax\n#      url: \"https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML\"\nAugust 2024: I don’t know why that url is not working. It was in Jan 2024. It is just setting the MathJax version. Probably the url is out of date somehow.",
+    "text": "MathJax is handling the display of your equations in html and you need to set the configuration to show numbers. Oddly, that is not the default. So you need include-in-header: mathjax.html in your Quarto book yaml. See the mathjax tab for your mathjax.html code.\nThis is what a minimal _quarto.yaml for numbered equations looks like\nproject:\n  type: book\n\nbook:\n  title: \"Quatro for amsmath LaTeX users\"\n  chapters:\n    - index.qmd\n    - yaml.qmd\n    - numbered_equations.qmd\n\nformat:\n  html:\n    include-in-header: mathjax.html\n  pdf:\n    include-in-header:\n      - text: |\n          \\usepackage{mathtools}\n# Don't use this. Breaks numbering (Aug 2024)\n#    html-math-method:\n#      method: mathjax\n#      url: \"https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML\"\nAugust 2024: I don’t know why that url is not working. It was in Jan 2024. It is just setting the MathJax version. Probably the url is out of date somehow.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>yaml for your Quarto book</span>"
     ]
@@ -42,21 +42,111 @@
   {
     "objectID": "numbered_equations.html",
     "href": "numbered_equations.html",
-    "title": "3  Numbered equations",
+    "title": "3  Basic numbered equations",
     "section": "",
-    "text": "3.1 Basic align\n\\[\\begin{align}\na & = b + c \\label{eq2} \\\\\nc & = d + e \\label{eq3}\n\\end{align}\\]\nThe cross-ref with \\eqref{eq2} and \\eqref{eq3} to get \\(\\eqref{eq2}\\) and \\(\\eqref{eq3}\\).",
+    "text": "3.1 Basic split\nThis is similar behavior to aligned.\n\\[\\begin{equation} \\label{eq1}\n\\begin{split}\nA & = \\frac{\\pi r^2}{2} \\\\\n& = \\frac{1}{2} \\pi r^2\n\\end{split}\n\\end{equation}\\]\nThe cross-ref with \\eqref{eq1} to get \\(\\eqref{eq1}\\).",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Numbered equations</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Basic numbered equations</span>"
+    ]
+  },
+  {
+    "objectID": "numbered_equations.html#basic-split",
+    "href": "numbered_equations.html#basic-split",
+    "title": "3  Basic numbered equations",
+    "section": "",
+    "text": "\\begin{equation} \\label{eq1}\n\\begin{split}\nA & = \\frac{\\pi r^2}{2} \\\\\n & = \\frac{1}{2} \\pi r^2\n\\end{split}\n\\end{equation}",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Basic numbered equations</span>"
+    ]
+  },
+  {
+    "objectID": "numbered_equations.html#basic-gathered",
+    "href": "numbered_equations.html#basic-gathered",
+    "title": "3  Basic numbered equations",
+    "section": "3.2 Basic gathered",
+    "text": "3.2 Basic gathered\nGathered gets you one number for all equations with centered equations.\n\\begin{equation}  \n\\begin{gathered}\n3(a-x) = 3.5x + a - 1 \\\\\n3a - 3x = 3.5x + a - 1 \\\\\na = \\frac{13}{4}x - \\frac{1}{2}\n\\end{gathered} \\label{eq4}\n\\end{equation}\n\\[\\begin{equation}  \n\\begin{gathered}\n3(a-x) = 3.5x + a - 1 \\\\\n3a - 3x = 3.5x + a - 1 \\\\\na = \\frac{13}{4}x - \\frac{1}{2}\n\\end{gathered} \\label{eq4}\n\\end{equation}\\]\nThe cross-ref with \\eqref{eq4} to get \\(\\eqref{eq4}\\).",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Basic numbered equations</span>"
+    ]
+  },
+  {
+    "objectID": "numbered_equations.html#basic-aligned",
+    "href": "numbered_equations.html#basic-aligned",
+    "title": "3  Basic numbered equations",
+    "section": "3.3 Basic aligned",
+    "text": "3.3 Basic aligned\nSame idea as gathered but we want to spec the equation alignment with &. ## Basic gathered\nGathered gets you one number for all equations with centered equations.\n\\begin{equation}  \n\\begin{aligned}\n3(a-x) &= 3.5x + a - 1 \\\\\n3a - 3x + 3a - 3x &= 3.5x + a - 1 \n\\end{aligned} \\label{eq5}\n\\end{equation}\n\\[\\begin{equation}  \n\\begin{aligned}\n3(a-x) &= 3.5x + a - 1 \\\\\n3a - 3x + 3a - 3x &= 3.5x + a - 1\n\\end{aligned} \\label{eq5}\n\\end{equation}\\]\nThe cross-ref with \\eqref{eq5} to get \\(\\eqref{eq5}\\).",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Basic numbered equations</span>"
     ]
   },
   {
     "objectID": "numbered_equations.html#basic-align",
     "href": "numbered_equations.html#basic-align",
-    "title": "3  Numbered equations",
-    "section": "",
-    "text": "\\begin{align}\na & = b + c \\label{eq2} \\\\\nc & = d + e \\label{eq3}\n\\end{align}",
+    "title": "3  Basic numbered equations",
+    "section": "3.4 Basic align",
+    "text": "3.4 Basic align\nAlign (not aligned) gets you each equation numbered with aligning at the &.\n\\begin{align}  \n3(a-x) &= 3.5x + a - 1 \\label{eq4a} \\\\\n3a - 3x &= 3.5x + a - 1 \\label{eq4b} \\\\\na &= \\frac{13}{4}x - \\frac{1}{2} \\label{eq4c}\n\\end{align}\n\\[\\begin{align}  \n3(a-x) &= 3.5x + a - 1 \\label{eq4a} \\\\\n3a - 3x &= 3.5x + a - 1 \\label{eq4b} \\\\\na &= \\frac{13}{4}x - \\frac{1}{2} \\label{eq4c}\n\\end{align}\\]\nThe cross-ref with \\eqref{eq4a} to get \\(\\eqref{eq4a}\\).\nYou can put aligned environment within align to get fancier (look at the raw qmd file for code). \\[\\begin{align}\n  & {\\begin{aligned}\n   & 1 + 1 = 2\\\\\n   & 1 * 2 * 3 * 4 * 5 * 6 * 7 = 7!\\\\\n   & 7 + 5 = 12+1-1+1-1+1-1+1-1\n  \\end{aligned}} \\label{A} \\\\\n     12 &= 11 + 1 \\label{B}\n\\end{align}\\] Equations \\(\\eqref{A}\\), \\(\\eqref{B}\\).\nUse \\nonumber to drop the number from one line. Add \\label{} if you need to cross-ref the equations numbers.\n\\begin{align}  \n3(a-x) &= 3.5x + a - 1  \\nonumber \\\\\n3a - 3x &= 3.5x + a - 1 \\nonumber \\\\\na &= \\frac{13}{4}x - \\frac{1}{2} \n\\end{align}\n\\[\\begin{align}  \n3(a-x) &= 3.5x + a - 1  \\\\\n3a - 3x &= 3.5x + a - 1 \\nonumber \\\\\na &= \\frac{13}{4}x - \\frac{1}{2}\n\\end{align}\\]",
     "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Numbered equations</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Basic numbered equations</span>"
+    ]
+  },
+  {
+    "objectID": "numbered_equations.html#basic-gather",
+    "href": "numbered_equations.html#basic-gather",
+    "title": "3  Basic numbered equations",
+    "section": "3.5 Basic gather",
+    "text": "3.5 Basic gather\ngather (not gathered) gets you each equation numbered like align but equations are all centered.\n\\begin{gather}  \n3(a-x) = 3.5x + a - 1 \\label{eq6a} \\\\\n3a - 3x = 3.5x + a - 1 \\label{eq46b} \\\\\na = \\frac{13}{4}x - \\frac{1}{2} \\label{eq6c}\n\\end{gather}\n\\[\\begin{gather}  \n3(a-x) = 3.5x + a - 1 \\label{eq6a} \\\\\n3a - 3x = 3.5x + a - 1 \\label{eq46b} \\\\\na = \\frac{13}{4}x - \\frac{1}{2} \\label{eq6c}\n\\end{gather}\\]\nThe cross-ref with \\eqref{eq6a} to get \\(\\eqref{eq6a}\\).\nYou can put gathered environment within gather to get fancier. \\[\\begin{gather}\n  {\\begin{gathered}\n   1 + 1 = 2\\\\\n   1 * 2 * 3 * 4 * 5 * 6 * 7 = 7!\\\\\n   7 + 5 = 12+1-1+1-1+1-1+1-1\n  \\end{gathered}} \\label{AA} \\\\\n     12 = 11 + 1 \\label{BB}\n\\end{gather}\\] Equations \\(\\eqref{AA}\\), \\(\\eqref{BB}\\).",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Basic numbered equations</span>"
+    ]
+  },
+  {
+    "objectID": "fancy_equations.html",
+    "href": "fancy_equations.html",
+    "title": "4  Fancier equations",
+    "section": "",
+    "text": "4.1 left and right brackets\n\\[\\begin{equation}\n\\left.\\begin{aligned}\n        B'&=-\\partial \\times E,\\\\\n        E'&=\\partial \\times B - 4\\pi j,\n       \\end{aligned}\n\\right\\}\n\\qquad \\text{Maxwell's equations}\n\\end{equation}\\]",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Fancier equations</span>"
+    ]
+  },
+  {
+    "objectID": "fancy_equations.html#left-and-right-brackets",
+    "href": "fancy_equations.html#left-and-right-brackets",
+    "title": "4  Fancier equations",
+    "section": "",
+    "text": "\\begin{equation}\n \\left.\\begin{aligned}\n        B'&=-\\partial \\times E,\\\\\n        E'&=\\partial \\times B - 4\\pi j,\n       \\end{aligned}\n \\right\\}\n \\qquad \\text{Maxwell's equations}\n\\end{equation}",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Fancier equations</span>"
+    ]
+  },
+  {
+    "objectID": "fancy_equations.html#alignat",
+    "href": "fancy_equations.html#alignat",
+    "title": "4  Fancier equations",
+    "section": "4.2 alignat",
+    "text": "4.2 alignat\n\\begin{alignat}{2}\n \\sigma_1 &= x + y  &\\quad \\sigma_2 &= \\frac{x}{y} \\\\   \n \\sigma_1' &= \\frac{\\partial x + y}{\\partial x} & \\sigma_2' \n    &= \\frac{\\partial \\frac{x}{y}}{\\partial x}\n\\end{alignat}\n\\[\\begin{alignat}{2}\n\\sigma_1 &= x + y  &\\quad \\sigma_2 &= \\frac{x}{y} \\\\   \n\\sigma_1' &= \\frac{\\partial x + y}{\\partial x} & \\sigma_2'\n    &= \\frac{\\partial \\frac{x}{y}}{\\partial x}\n\\end{alignat}\\]",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Fancier equations</span>"
+    ]
+  },
+  {
+    "objectID": "fancy_equations.html#split-within-gather",
+    "href": "fancy_equations.html#split-within-gather",
+    "title": "4  Fancier equations",
+    "section": "4.3 split within gather",
+    "text": "4.3 split within gather\n\\begin{gather*}\na_0=\\frac{1}{\\pi}\\int\\limits_{-\\pi}^{\\pi}f(x)\\,\\mathrm{d}x\\\\[6pt]\n\\begin{split}\na_n=\\frac{1}{\\pi}\\int\\limits_{-\\pi}^{\\pi}f(x)\\cos nx\\,\\mathrm{d}x=\\\\\n=\\frac{1}{\\pi}\\int\\limits_{-\\pi}^{\\pi}x^2\\cos nx\\,\\mathrm{d}x\n\\end{split}\\\\[6pt]\n\\begin{split}\nb_n=\\frac{1}{\\pi}\\int\\limits_{-\\pi}^{\\pi}f(x)\\sin nx\\,\\mathrm{d}x=\\\\\n=\\frac{1}{\\pi}\\int\\limits_{-\\pi}^{\\pi}x^2\\sin nx\\,\\mathrm{d}x\n\\end{split}\\\\[6pt]\n\\end{gather*}\n\\[\\begin{gather*}\na_0=\\frac{1}{\\pi}\\int\\limits_{-\\pi}^{\\pi}f(x)\\,\\mathrm{d}x\\\\[6pt]\n\\begin{split}\na_n=\\frac{1}{\\pi}\\int\\limits_{-\\pi}^{\\pi}f(x)\\cos nx\\,\\mathrm{d}x=\\\\\n=\\frac{1}{\\pi}\\int\\limits_{-\\pi}^{\\pi}x^2\\cos nx\\,\\mathrm{d}x\n\\end{split}\\\\[6pt]\n\\begin{split}\nb_n=\\frac{1}{\\pi}\\int\\limits_{-\\pi}^{\\pi}f(x)\\sin nx\\,\\mathrm{d}x=\\\\\n=\\frac{1}{\\pi}\\int\\limits_{-\\pi}^{\\pi}x^2\\sin nx\\,\\mathrm{d}x\n\\end{split}\\\\[6pt]\n\\end{gather*}\\]",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Fancier equations</span>"
+    ]
+  },
+  {
+    "objectID": "fancy_equations.html#boxes-around-equations",
+    "href": "fancy_equations.html#boxes-around-equations",
+    "title": "4  Fancier equations",
+    "section": "4.4 Boxes around equations",
+    "text": "4.4 Boxes around equations\n\\[\\begin{align}\n\\Aboxed{ f(x) & = \\int h(x)\\, dx} \\\\\n              & = g(x)\n\\end{align}\\]",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Fancier equations</span>"
     ]
   }
 ]

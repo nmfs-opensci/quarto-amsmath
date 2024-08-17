@@ -1,0 +1,78 @@
+# Fancier equations
+
+MathJax knows most of [the fancy amsmath stuff](https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics).
+
+## left and right brackets
+
+```
+\begin{equation}
+ \left.\begin{aligned}
+        B'&=-\partial \times E,\\
+        E'&=\partial \times B - 4\pi j,
+       \end{aligned}
+ \right\}
+ \qquad \text{Maxwell's equations}
+\end{equation}
+```
+
+\begin{equation}
+ \left.\begin{aligned}
+        B'&=-\partial \times E,\\
+        E'&=\partial \times B - 4\pi j,
+       \end{aligned}
+ \right\}
+ \qquad \text{Maxwell's equations}
+\end{equation}
+
+## alignat
+
+```
+\begin{alignat}{2}
+ \sigma_1 &= x + y  &\quad \sigma_2 &= \frac{x}{y} \\	
+ \sigma_1' &= \frac{\partial x + y}{\partial x} & \sigma_2' 
+    &= \frac{\partial \frac{x}{y}}{\partial x}
+\end{alignat}
+```
+
+\begin{alignat}{2}
+ \sigma_1 &= x + y  &\quad \sigma_2 &= \frac{x}{y} \\	
+ \sigma_1' &= \frac{\partial x + y}{\partial x} & \sigma_2' 
+    &= \frac{\partial \frac{x}{y}}{\partial x}
+\end{alignat}
+
+## split within gather
+
+```
+\begin{gather*}
+a_0=\frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)\,\mathrm{d}x\\[6pt]
+\begin{split}
+a_n=\frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)\cos nx\,\mathrm{d}x=\\
+=\frac{1}{\pi}\int\limits_{-\pi}^{\pi}x^2\cos nx\,\mathrm{d}x
+\end{split}\\[6pt]
+\begin{split}
+b_n=\frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)\sin nx\,\mathrm{d}x=\\
+=\frac{1}{\pi}\int\limits_{-\pi}^{\pi}x^2\sin nx\,\mathrm{d}x
+\end{split}\\[6pt]
+\end{gather*}
+```
+
+\begin{gather*}
+a_0=\frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)\,\mathrm{d}x\\[6pt]
+\begin{split}
+a_n=\frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)\cos nx\,\mathrm{d}x=\\
+=\frac{1}{\pi}\int\limits_{-\pi}^{\pi}x^2\cos nx\,\mathrm{d}x
+\end{split}\\[6pt]
+\begin{split}
+b_n=\frac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)\sin nx\,\mathrm{d}x=\\
+=\frac{1}{\pi}\int\limits_{-\pi}^{\pi}x^2\sin nx\,\mathrm{d}x
+\end{split}\\[6pt]
+\end{gather*}
+
+## Boxes around equations
+
+
+\begin{align}
+\Aboxed{ f(x) & = \int h(x)\, dx} \\
+              & = g(x)
+\end{align}
+
