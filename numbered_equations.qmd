@@ -1,4 +1,4 @@
-# Basic numbered equations {#sec-background}
+# Basic numbered equations
 
 *Reminder: Do not use [Quarto equation numbering syntax](https://quarto.org/docs/authoring/cross-references.html#equations). Stay with proper amsmath LaTeX. Quarto syntax is fine if you only have single equations in display math, but you are on this page because that is not what you need. You need the full amsmath capabilities.*
 

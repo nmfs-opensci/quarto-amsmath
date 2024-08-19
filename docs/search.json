@@ -148,5 +148,15 @@
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Fancier equations</span>"
     ]
+  },
+  {
+    "objectID": "mathjax.html",
+    "href": "mathjax.html",
+    "title": "MathJax.config.section=55  MathJax",
+    "section": "",
+    "text": "MathJax is the javascript library that turns your LaTeX code into pretty html. It knows AMS math but it doesn’t turn on numbering by default (weirdly). You need to set some config to do that. The way you set configuration is totally different for MathJax 2+ and MathJax 3+. MathJax 2.7 is ancient but it’s all over the place where developers have hard-coded in a MathJax library. The mathjax.hmtl file below will set the config for both MathJax 2.7 and MathJax 3+ numbering. It doesn’t seem to break things to set both so might be more robust to set configs for both versions.\nAlways check what MathJax version is being used if you are having html issues. Look at the page source and search for mathjax.\nPut this in your mathjax.html file that you include in your _quarto.yaml file.\n&lt;!-- This is what works with MathJax 2.7 (which is ancient but all over the place) --&gt;\n&lt;script type=\"text/x-mathjax-config\"&gt;\nMathJax.Hub.Config({\n  TeX: { equationNumbers: {autoNumber: \"AMS\"} },\n  tex2jax: {inlineMath: [ ['$','$'], [\"\\\\(\",\"\\\\)\"] ]}\n});\n&lt;/script&gt;\n\n&lt;!-- This is what works with Quarto and MathJax 3+ --&gt;\n&lt;script&gt;\n  MathJax = {\n    tex: {\n      tags: 'ams'  // should be 'ams', 'none', or 'all'\n    }\n  };\n&lt;/script&gt;",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>MathJax</span>"
+    ]
   }
 ]
