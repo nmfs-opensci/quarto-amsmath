@@ -1,0 +1,3 @@
+.chapter-number::before {
+  content: "Chapter: ";
+}

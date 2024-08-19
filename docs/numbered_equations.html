@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Basic numbered equations – Quatro for amsmath LaTeX users</title>
+<title>&nbsp; Basic numbered equations – Quatro for amsmath LaTeX users</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -75,14 +75,37 @@ MathJax.Hub.Config({
 });
 </script>
 
-<!-- This is what works with Quarto -->
+<!-- MathJax 3+ Add section numbers to equations -->
 <script>
-  MathJax = {
-    tex: {
-      tags: 'ams'  // should be 'ams', 'none', or 'all'
+MathJax = {
+  loader: {load: ['[tex]/tagformat']},
+  section: 1,
+  tex: {
+    packages: {'[+]': ['tagformat']},
+    tags: 'ams',
+    tagformat: {
+      number: (n) => MathJax.config.section + '.' + n,
+      id: (tag) => 'eqn-id:' + tag
     }
-  };
+  },
+  startup: {
+    ready() {
+      MathJax.startup.defaultReady();
+      MathJax.startup.input[0].preFilters.add(({math}) => {
+        if (math.inputData.recompile) {
+          MathJax.config.section = math.inputData.recompile.section;
+        }
+      });
+      MathJax.startup.input[0].postFilters.add(({math}) => {
+        if (math.inputData.recompile) {
+          math.inputData.recompile.section = MathJax.config.section;
+        }
+      });
+    }
+  }
+};
 </script>
+
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -125,7 +148,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./numbered_equations.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Basic numbered equations</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./numbered_equations.html"><span class="chapter-number"><script>MathJax.config.section=3</script>3</span>&nbsp; <span class="chapter-title">Basic numbered equations</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -163,25 +186,25 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./background.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Background</span></span></a>
+ <span class="menu-text"><span class="chapter-number"><script>MathJax.config.section=1</script>1</span>&nbsp; <span class="chapter-title">Background</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./yaml.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">yaml for your Quarto book</span></span></a>
+ <span class="menu-text"><span class="chapter-number"><script>MathJax.config.section=2</script>2</span>&nbsp; <span class="chapter-title">yaml for your Quarto book</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./numbered_equations.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Basic numbered equations</span></span></a>
+ <span class="menu-text"><span class="chapter-number"><script>MathJax.config.section=3</script>3</span>&nbsp; <span class="chapter-title">Basic numbered equations</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./fancy_equations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fancier equations</span></span></a>
+ <span class="menu-text"><span class="chapter-number"><script>MathJax.config.section=4</script>4</span>&nbsp; <span class="chapter-title">Fancier equations</span></span></a>
   </div>
 </li>
     </ul>
@@ -207,7 +230,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Basic numbered equations</span></h1>
+<h1 class="title"><span id="sec-background" class="quarto-section-identifier"><span class="chapter-number"><script>MathJax.config.section=3</script>3</span>&nbsp; <span class="chapter-title">Basic numbered equations</span></span></h1>
 </div>
 
 
@@ -771,12 +794,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./yaml.html" class="pagination-link" aria-label="yaml for your Quarto book">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">yaml for your Quarto book</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number"><script>MathJax.config.section=2</script>2</span>&nbsp; <span class="chapter-title">yaml for your Quarto book</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./fancy_equations.html" class="pagination-link" aria-label="Fancier equations">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fancier equations</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number"><script>MathJax.config.section=4</script>4</span>&nbsp; <span class="chapter-title">Fancier equations</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

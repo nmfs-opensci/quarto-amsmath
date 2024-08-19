@@ -19,7 +19,12 @@ book:
 
 format:
   html:
-    include-in-header: mathjax.html
+#    include-in-header: mathjax.html
+    include-in-header: mathjax_chapnum2.html
+    filters:
+      - test.lua
+
+#    css: test.css
   pdf: 
     include-in-header:
       - text: |
